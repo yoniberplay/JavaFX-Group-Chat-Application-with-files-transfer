@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#MouseDrag" onMousePressed="#Mousepress" onMouseReleased="#Mousereleased" prefHeight="434.0" prefWidth="735.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.roomchatcontroller">
+   <center>
+      <VBox prefHeight="390.0" prefWidth="561.0" style="-fx-background-color: #303841;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="46.0" prefWidth="536.0" style="-fx-background-color: #303841;" />
+            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="342.0" prefWidth="498.0" style="-fx-background-color: #303841;">
+               <content>
+                  <VBox fx:id="chatarea" alignment="TOP_CENTER" prefHeight="340.0" prefWidth="515.0" style="-fx-background-color: #303841;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="39.0" prefWidth="525.0" style="-fx-background-color: #303841; -fx-border-color: #303841;">
+               <children>
+                  <JFXButton onAction="#SendFile" prefHeight="23.0" prefWidth="46.0" style="-fx-background-color: #EFFFFD;" text=" ">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <FontAwesomeIconView fill="#303841" glyphName="PAPERCLIP" size="28" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <TextArea fx:id="txtmsj" onKeyPressed="#sendmsjkey" prefHeight="12.0" prefWidth="423.0" promptText="Enviar mensaje..." style="-fx-background-color: #EFFFFD;" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TextArea>
+                  <Button mnemonicParsing="false" onAction="#sendmsj" prefHeight="61.0" prefWidth="58.0" style="-fx-background-color: #EFFFFD;" text="Send">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="0.0" prefWidth="735.0" style="-fx-background-color: #303841;" BorderPane.alignment="CENTER">
+         <children>
+            <Label accessibleRoleDescription="s" alignment="CENTER" layoutX="276.0" layoutY="8.0" text="Yoniber's Chat Room" textFill="#effffd">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" focusTraversable="true" glyphName="WINDOW_MINIMIZE" layoutX="688.0" layoutY="21.0" onMouseClicked="#closeMinimize" selectionEnd="0" size="20" wrappingWidth="24.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="WHITE" focusTraversable="true" glyphName="CLOSE" layoutX="712.0" layoutY="22.0" onMouseClicked="#closeStage" size="24">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIconView>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="199.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #303841; -fx-border-width: 1;">
+               <children>
+                  <Label accessibleRoleDescription="s" alignment="CENTER" layoutX="54.0" layoutY="2.0" text="online users" textFill="#25ff00" underline="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="374.0" prefWidth="199.0" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="ListaConectados" prefHeight="364.0" prefWidth="199.0" style="-fx-background-color: #EFFFFD;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
